@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <title>Etch a Sketch</title>
 </head>
 <body>
-  
+  <header>
+    <h1>Etch-a-Sketch!</h1>
+  </header>
+
+  <main>
+    <div class="sketch-container shadow-1">
+    </div>
+  </main>
+
+  <div class="color-profiles">
+    <div class="color-1 color shadow-2 selected"></div>
+    <div class="color-2 color shadow-2"></div>
+    <div class="color-3 color shadow-2"></div>
+    <div class="color-4 color shadow-2"></div>
+  </div>
+
+  <div class="utilities">
+    <button class="utility active shadow-3 selected">RAINBOW</button>
+    <button class="utility active shadow-3">SHADE</button>
+    <button class="utility active shadow-3">GRID LINE</button>
+    <button class="utility active shadow-3">CLEAR</button>
+    <div class="utility grid-range-container">
+      <p>GRID SIZE: <a>16x16</a></p>
+      <input type="range" class="grid-range">
+    </div>
+  </div>
+
+  <footer>
+    <hr class="shadow-4">
+    <p><a>GitHub</a> | <a>Source</a></p>
+    <hr>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 15vh 65vh 20vh 70vh 10vh;
+}
+
+header {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: grid;
+  padding: 1rem;
+}
+
+button {
+  background-color: white;
+}
+
+/* sketch container */
+
+.sketch-container {
+  width: 90vw;
+  height: 90vw;
+  max-width: 500px;
+  max-height: 500px;
+  justify-self: center;
+  align-self: center;
+}
+
+/* color profiles */
+
+.color-profiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.color {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+/* utilities */
+
+.utilities {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: .5rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 5vh;
+}
+
+.utility {
+  width: 50%;
+  height: 70%;
+  border-radius: 5px;
+}
+
+.grid-range-container {
+  box-shadow: none;
+}
+
+.grid-range-container a, .grid-range-container p {
+  font-size: .75rem;
+  text-align: center;
+}
+
+.grid-range {
+  margin-top: 0.3rem;
+  width: 100%;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer hr {
+  height: 2px;
+  width: 80vw;
+  background-color: black;
+}
+
+footer hr:last-of-type {
+  background-color: white;
+}
+
+/* effects and animations */
+
+.shadow-1 {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.shadow-2 {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.shadow-3 {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.shadow-4 {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.active:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.selected {
+  transition: .2s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border: solid 2px #40e0d0;
+}
