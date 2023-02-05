@@ -40,10 +40,6 @@ button {
   grid-template-rows: repeat(16, 1fr);
 }
 
-.sketch {
-  background-color: red;
-}
-
 /* color profiles */
 
 .color-profiles {

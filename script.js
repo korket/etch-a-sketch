@@ -4,7 +4,7 @@ const sketchContainer = document.querySelector('.sketch-container');
 const range = document.querySelector('.grid-range');
 const sketchSizeDisplay = document.querySelector('.grid-range-container a');
 
-// changes grid size value on html
+// applies if range size changes
 
 range.addEventListener('change', () => {
   sketchSizeDisplay.textContent = `${range.value}x${range.value}`;
@@ -14,11 +14,32 @@ range.addEventListener('change', () => {
   sketchContainer.style.gridTemplateColumns = `repeat(${range.value}, 1fr)`;
   sketchContainer.style.gridTemplateRows = `repeat(${range.value}, 1fr)`;
 
-  // create new divs based on range value
+  createSketchDivs();
+  sketchHover();
+});
 
+// create new divs based on range value
+
+function createSketchDivs() {
   for (i = 0; i < (range.value**2); i++) {
     const newSketch = document.createElement('div');
     newSketch.classList.add('sketch');
     sketchContainer.appendChild(newSketch);
   };
-});
+};
+
+createSketchDivs();
+
+// function to add colors to sketch divs on hover
+
+function sketchHover() {
+  const sketchDivs = document.querySelectorAll('.sketch');
+  for (const sketch of sketchDivs) {
+    sketch.addEventListener('mouseover', () => {
+      sketch.style.backgroundColor = 'black';
+    });
+    sketch.style.backgroundColor = 'white';
+  };
+};
+
+sketchHover();
