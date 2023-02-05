@@ -13,9 +13,23 @@ range.addEventListener('change', () => {
 
   sketchContainer.style.gridTemplateColumns = `repeat(${range.value}, 1fr)`;
   sketchContainer.style.gridTemplateRows = `repeat(${range.value}, 1fr)`;
-
+  
   createSketchDivs();
   sketchHover();
+
+  // to make sure grid still shows after reset
+
+  const sketchDivs = document.querySelectorAll('.sketch');
+  if (gridLineBtn.classList.contains('selected')) {
+    for (const sketch of sketchDivs) {
+      sketch.setAttribute('class', 'sketch show-grid-line');
+    };
+  }
+  else if (gridLineBtn.classList.contains('grid-line')) {
+    for (const sketch of sketchDivs) {
+      sketch.setAttribute('class', 'sketch');
+    };
+  };
 
   clear();
 });
@@ -67,6 +81,24 @@ function selectColor(){
   return selectedColor.value;
 };
 
+// show grid lines function
+
+function showGridLine() {
+  const sketchDivs = document.querySelectorAll('.sketch');
+  if (gridLineBtn.classList.contains('selected')) {
+    for (const sketch of sketchDivs) {
+      sketch.setAttribute('class', 'sketch');
+    };
+    gridLineBtn.setAttribute('class', 'grid-line utility active shadow-3');
+  }
+  else {
+    for (const sketch of sketchDivs) {
+      sketch.setAttribute('class', 'sketch show-grid-line');
+    };
+    gridLineBtn.setAttribute('class', 'grid-line utility active shadow-3 selected');
+  }; 
+}
+
 // clear sketch function
 
 function clear() {
@@ -79,8 +111,9 @@ function clear() {
 // utilities button
 
 const rainbowBtn = document.querySelector('.rainbow');
-const shadwBtn = document.querySelector('.shade');
+const shadeBtn = document.querySelector('.shade');
 const gridLineBtn = document.querySelector('.grid-line');
 const clearBtn = document.querySelector('.clear');
 
+gridLineBtn.addEventListener('click', () => {showGridLine()});
 clearBtn.addEventListener('click', () => {clear()});

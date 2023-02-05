@@ -166,6 +166,10 @@ footer hr:last-of-type {
   border: solid 2px #40e0d0;
 }
 
+.show-grid-line {
+  border: dotted 1px black;
+}
+
 /* range styles */
 
 input[type="range"] {
