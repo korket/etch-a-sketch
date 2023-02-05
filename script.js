@@ -38,12 +38,34 @@ function sketchHover() {
   const sketchDivs = document.querySelectorAll('.sketch');
   for (const sketch of sketchDivs) {
     sketch.addEventListener('mouseover', () => {
-      sketch.style.backgroundColor = 'black';
+      sketch.style.backgroundColor = `${selectColor()}`;
     });
   };
 };
 
 sketchHover();
+
+// select color function
+
+const colorProfiles = document.querySelectorAll('.color');
+
+for (const color of colorProfiles) {
+  color.addEventListener('click', () => {
+    unSelectColor();
+    color.setAttribute('class', 'color selected-color');
+  });
+};
+
+function unSelectColor() {
+  for (const color of colorProfiles) {
+    color.setAttribute('class', 'color');
+  };
+};
+
+function selectColor(){
+  const selectedColor = document.querySelector('.selected-color');
+  return selectedColor.value;
+};
 
 // clear sketch function
 
