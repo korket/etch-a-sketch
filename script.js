@@ -75,3 +75,12 @@ function clear() {
     sketch.style.backgroundColor = 'white';
   };
 };
+
+// utilities button
+
+const rainbowBtn = document.querySelector('.rainbow');
+const shadwBtn = document.querySelector('.shade');
+const gridLineBtn = document.querySelector('.grid-line');
+const clearBtn = document.querySelector('.clear');
+
+clearBtn.addEventListener('click', () => {clear()});
