@@ -35,6 +35,13 @@ button {
   max-height: 500px;
   justify-self: center;
   align-self: center;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.sketch {
+  background-color: red;
 }
 
 /* color profiles */
