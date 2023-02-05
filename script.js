@@ -16,6 +16,8 @@ range.addEventListener('change', () => {
 
   createSketchDivs();
   sketchHover();
+
+  clear();
 });
 
 // create new divs based on range value
@@ -38,8 +40,16 @@ function sketchHover() {
     sketch.addEventListener('mouseover', () => {
       sketch.style.backgroundColor = 'black';
     });
-    sketch.style.backgroundColor = 'white';
   };
 };
 
 sketchHover();
+
+// clear sketch function
+
+function clear() {
+  const sketchDivs = document.querySelectorAll('.sketch');
+  for (const sketch of sketchDivs) {
+    sketch.style.backgroundColor = 'white';
+  };
+};
