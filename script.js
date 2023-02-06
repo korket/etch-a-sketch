@@ -15,20 +15,13 @@ range.addEventListener('change', () => {
   sketchContainer.style.gridTemplateRows = `repeat(${range.value}, 1fr)`;
 
   clear();
-  createSketchDivs();
-  sketchHover();
 
   // to make sure grid still shows after reset
 
   const sketchDivs = document.querySelectorAll('.sketch');
   if (gridLineBtn.classList.contains('selected')) {
     for (const sketch of sketchDivs) {
-      sketch.setAttribute('class', 'sketch show-grid-line');
-    };
-  }
-  else if (gridLineBtn.classList.contains('grid-line')) {
-    for (const sketch of sketchDivs) {
-      sketch.setAttribute('class', 'sketch');
+      sketch.classList.add('show-grid-line');
     };
   };
 });
@@ -97,6 +90,9 @@ function clear() {
   for (const sketch of sketchDivs) {
     sketchContainer.removeChild(sketch);
   };
+
+  createSketchDivs();
+  sketchHover();
 };
 
 // utilities button
@@ -107,4 +103,15 @@ const gridLineBtn = document.querySelector('.grid-line');
 const clearBtn = document.querySelector('.clear');
 
 gridLineBtn.addEventListener('click', () => {showGridLine()});
-clearBtn.addEventListener('click', () => {clear()});
+clearBtn.addEventListener('click', () => {
+  clear();
+
+  // to make sure grid still shows after reset
+
+  const sketchDivs = document.querySelectorAll('.sketch');
+  if (gridLineBtn.classList.contains('selected')) {
+    for (const sketch of sketchDivs) {
+      sketch.classList.add('show-grid-line');
+    };
+  };
+});
