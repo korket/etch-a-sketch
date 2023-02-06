@@ -13,7 +13,8 @@ range.addEventListener('change', () => {
 
   sketchContainer.style.gridTemplateColumns = `repeat(${range.value}, 1fr)`;
   sketchContainer.style.gridTemplateRows = `repeat(${range.value}, 1fr)`;
-  
+
+  clear();
   createSketchDivs();
   sketchHover();
 
@@ -30,8 +31,6 @@ range.addEventListener('change', () => {
       sketch.setAttribute('class', 'sketch');
     };
   };
-
-  clear();
 });
 
 // create new divs based on range value
@@ -104,7 +103,9 @@ function showGridLine() {
 function clear() {
   const sketchDivs = document.querySelectorAll('.sketch');
   for (const sketch of sketchDivs) {
-    sketch.style.backgroundColor = 'white';
+    // sketch.style.backgroundColor = 'white';
+    sketchContainer.removeChild(sketch);
+    // createSketchDivs();
   };
 };
 
