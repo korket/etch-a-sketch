@@ -4,6 +4,13 @@ const sketchContainer = document.querySelector('.sketch-container');
 const range = document.querySelector('.grid-range');
 const sketchSizeDisplay = document.querySelector('.grid-range-container a');
 
+// utilities buttons
+
+const rainbowBtn = document.querySelector('.rainbow');
+const shadeBtn = document.querySelector('.shade');
+const gridLineBtn = document.querySelector('.grid-line');
+const clearBtn = document.querySelector('.clear');
+
 // applies if range size changes
 
 range.addEventListener('change', () => {
@@ -95,14 +102,12 @@ function clear() {
   sketchHover();
 };
 
-// utilities button
+// utilities buttons script
 
-const rainbowBtn = document.querySelector('.rainbow');
-const shadeBtn = document.querySelector('.shade');
-const gridLineBtn = document.querySelector('.grid-line');
-const clearBtn = document.querySelector('.clear');
+gridLineBtn.addEventListener('click', () => {
+  showGridLine();
+});
 
-gridLineBtn.addEventListener('click', () => {showGridLine()});
 clearBtn.addEventListener('click', () => {
   clear();
 
