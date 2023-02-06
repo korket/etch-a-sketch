@@ -84,28 +84,18 @@ function selectColor(){
 
 function showGridLine() {
   const sketchDivs = document.querySelectorAll('.sketch');
-  if (gridLineBtn.classList.contains('selected')) {
-    for (const sketch of sketchDivs) {
-      sketch.setAttribute('class', 'sketch');
-    };
-    gridLineBtn.setAttribute('class', 'grid-line utility active shadow-3');
-  }
-  else {
-    for (const sketch of sketchDivs) {
-      sketch.setAttribute('class', 'sketch show-grid-line');
-    };
-    gridLineBtn.setAttribute('class', 'grid-line utility active shadow-3 selected');
-  }; 
-}
+  gridLineBtn.classList.toggle('selected');
+  for (const sketch of sketchDivs) {
+    sketch.classList.toggle('show-grid-line');
+  };
+};
 
 // clear sketch function
 
 function clear() {
   const sketchDivs = document.querySelectorAll('.sketch');
   for (const sketch of sketchDivs) {
-    // sketch.style.backgroundColor = 'white';
     sketchContainer.removeChild(sketch);
-    // createSketchDivs();
   };
 };
 
