@@ -170,3 +170,22 @@ clearBtn.addEventListener('click', () => {
     };
   };
 });
+
+// desktop ui
+
+const body = document.querySelector('body');
+const main = document.querySelector('main');
+const colorProfilesContainer = document.querySelector('.color-profiles');
+
+function wideScreenMode() {
+  if (wideScreen.matches) {
+    main.appendChild(colorProfilesContainer);
+  }
+  else {
+    body.appendChild(colorProfilesContainer);
+  };
+};
+
+const wideScreen = window.matchMedia('(min-width: 1000px)');
+wideScreenMode();
+wideScreen.addEventListener('change', () => {wideScreenMode()});
