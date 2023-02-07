@@ -45,15 +45,30 @@ function createSketchDivs() {
 
 createSketchDivs();
 
-// function to add colors to sketch divs on hover
+function rgb () {
+	return Math.floor(Math.random() * 255)
+};
 
 function sketchHover() {
   const sketchDivs = document.querySelectorAll('.sketch');
   for (const sketch of sketchDivs) {
+
+    // rainbow mode
+
+  if (rainbowBtn.classList.contains('selected-color')) {
+  	sketch.addEventListener('mouseover', () => {
+  		sketch.style.backgroundColor = `rgb(${rgb()}, ${rgb()}, ${rgb()})`;
+  	})
+  }
+
+  // normal color select from color profiles
+
+  else {
     sketch.addEventListener('mouseover', () => {
       sketch.style.backgroundColor = `${selectColor()}`;
     });
   };
+};
 };
 
 sketchHover();
@@ -66,6 +81,7 @@ for (const color of colorProfiles) {
   color.addEventListener('click', () => {
     unSelectColor();
     color.setAttribute('class', 'color selected-color');
+    sketchHover();
   });
 };
 
@@ -73,6 +89,7 @@ function unSelectColor() {
   for (const color of colorProfiles) {
     color.setAttribute('class', 'color');
   };
+  rainbowBtn.classList.remove('selected-color');
 };
 
 function selectColor(){
@@ -103,6 +120,13 @@ function clear() {
 };
 
 // utilities buttons script
+
+rainbowBtn.addEventListener('click', () => {
+	unSelectColor();
+  rainbowBtn.value = rainbowMode();
+	rainbowBtn.classList.toggle('selected-color');
+  sketchHover();
+});
 
 gridLineBtn.addEventListener('click', () => {
   showGridLine();
