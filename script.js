@@ -106,6 +106,9 @@ function unSelectColor() {
   };
   rainbowBtn.classList.remove('selected-color');
   rainbowBtn.classList.remove('selected');
+  shadeBtn.classList.remove('selected-color');
+  shadeBtn.classList.remove('selected');
+  
 };
 
 function selectColor(){
