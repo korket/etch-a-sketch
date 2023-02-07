@@ -26,6 +26,10 @@ button {
   background-color: white;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* sketch container */
 
 .sketch-container {
