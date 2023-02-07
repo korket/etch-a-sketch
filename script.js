@@ -53,7 +53,7 @@ function sketchHover() {
   const sketchDivs = document.querySelectorAll('.sketch');
   for (const sketch of sketchDivs) {
 
-    // rainbow mode
+  // rainbow mode
 
   if (rainbowBtn.classList.contains('selected-color')) {
   	sketch.addEventListener('mouseover', () => {
@@ -90,6 +90,7 @@ function unSelectColor() {
     color.setAttribute('class', 'color');
   };
   rainbowBtn.classList.remove('selected-color');
+  rainbowBtn.classList.remove('selected');
 };
 
 function selectColor(){
@@ -123,8 +124,8 @@ function clear() {
 
 rainbowBtn.addEventListener('click', () => {
 	unSelectColor();
-  rainbowBtn.value = rainbowMode();
 	rainbowBtn.classList.toggle('selected-color');
+  rainbowBtn.classList.toggle('selected');
   sketchHover();
 });
 
