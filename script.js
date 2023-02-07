@@ -61,6 +61,21 @@ function sketchHover() {
   	})
   }
 
+  // shade mode
+
+  else if (shadeBtn.classList.contains('selected-color')) {
+    let a = 1;
+    sketch.addEventListener('mouseover', () => {
+      if (a < 10) {
+        sketch.style.backgroundColor = `rgba(0,0,0,0.${a})`;
+        a++;
+      } 
+      else {
+        sketch.style.backgroundColor = `rgb(0,0,0)`;
+      }
+    })
+  }
+
   // normal color select from color profiles
 
   else {
@@ -68,7 +83,7 @@ function sketchHover() {
       sketch.style.backgroundColor = `${selectColor()}`;
     });
   };
-};
+  };
 };
 
 sketchHover();
@@ -121,6 +136,13 @@ function clear() {
 };
 
 // utilities buttons script
+
+shadeBtn.addEventListener('click', () => {
+	unSelectColor();
+	shadeBtn.classList.toggle('selected-color');
+  shadeBtn.classList.toggle('selected');
+  sketchHover();
+});
 
 rainbowBtn.addEventListener('click', () => {
 	unSelectColor();
